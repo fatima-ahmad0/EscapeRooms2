@@ -575,3 +575,17 @@ body.amber-theme .world-banner {border-color:#8c6833;}
 }
 @keyframes narrative-pop { from { opacity:.5; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
 .narrative-pop { animation:narrative-pop .28s ease-out both; }
+
+/* Team-based mission additions */
+.setup-row select{width:100%;min-width:0;padding:13px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);font:inherit;outline-offset:3px}
+.answer-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 18px}
+.answer-option-card{min-width:0;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,var(--panel2),rgba(7,26,44,.35));padding:12px;box-shadow:inset 0 1px rgba(255,255,255,.03);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.answer-option-card:hover{transform:translateY(-2px);border-color:var(--green);box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.answer-option-card strong{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--green);color:#061522;margin-bottom:8px;font-size:.85rem}
+.answer-option-card pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:500 .82rem/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--text)}
+.answer-option-card pre:empty{display:none}
+#teamNumber{appearance:auto}
+@media(max-width:620px){.answer-options{grid-template-columns:1fr}.answer-option-card pre{font-size:.78rem}.setup-row select{font-size:16px}}
+.setup-row #teamNumber{flex:1 1 110px;min-width:110px;color:var(--text)}
+.setup-row #roomPasscode{flex:1 1 150px;min-width:140px}
+@media(max-width:800px){.setup-row #teamNumber,.setup-row #teamName,.setup-row #roomPasscode{flex:1 1 100%;width:100%;min-width:0}}

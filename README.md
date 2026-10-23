@@ -1,19 +1,16 @@
-# ESC-C-APE — The Last Bug (Cinematic Edition v2)
+# ESC-C-APE: The Last Bug — Five-Team Edition
 
-Static HTML/CSS/JS site, no build step. Upload every file (including `assets/`) to the repo root; Vercel deploys it.
+A cinematic C-programming escape-room website for five teams. Each team gets three team-specific questions, a 10-minute timer, and one key digit for each correct answer. The three recovered digits form that team’s final vault code. Ocean Navy is the default theme.
 
-## What's new in v2
-- Fixed wrong-answer messages (each level now has its own; Level 8 no longer shows "undefined").
-- Level 8 checker now simulates the loops, so any variable names, `<`/`<=`, `putchar`, etc. are accepted. It rejects wrong shapes.
-- Refresh-proof timer: progress, score, hints and the deadline are saved in the browser. Reloading resumes the mission; if time ran out meanwhile, the Time's Up screen shows.
-- Procedural background music (MUSIC toggle) that gets faster and more intense each sector and during the last 3 minutes.
-- Intro cutscene, typewriter dialogue, BUG.exe taunts at 15/10/5/3/1 minutes, letterbox bars on sector travel, fog, film grain, vignette, red alarm pulse in the last 3 minutes, per-sector colour glow.
-- All panels, hero and header now follow the selected theme (previously parts stayed dark navy in light themes).
-- Passcode is stored as a hash (not readable in plain text).
+## Deploy
+Upload all files and the complete `assets/` folder to the root of your GitHub repository. Vercel can redeploy automatically after commit.
 
-## Organizer notes
-- Passcode: `BUG2026`. To change it, compute `hashStr("NEWCODE")` in the browser console on the page and update `PASS_HASH` in `script.js`.
-- Reset a computer for the next team: use RETURN TO HOME, or open the site with `?reset` at the end of the URL.
-- Everything is client-side, so it controls event flow but is not secure against determined players (the vault digits live in `script.js`).
-- Browsers only allow audio after a click, so music starts when the team clicks INITIALIZE MISSION (or on the first click after a reload).
-- Test the full run once in your real browser before the event.
+## Access
+The organizer passcode is checked by the front-end start form and is not shown on the home page. For a public static website, a front-end passcode is a convenience gate, not strong security: anyone inspecting client-side JavaScript can discover it.
+
+## Question note
+All five Q2 challenges now use explicitly numbered C snippets. Teams identify the lines with syntax or logic/output errors, add those line numbers, and submit the sum. The factorial question includes a comment explaining factorial. The website awards the configured key digit when the correct sum is entered.
+
+Organizer answer key for Q2: Team 1 = 33 (lines 02, 03, 05, 06, 07, 10); Team 2 = 23 (lines 02, 06, 07, 08); Team 3 = 14 (lines 06, 08); Team 4 = 6 (line 06); Team 5 = 6 (line 06).
+
+Note: the front-end answer values are visible to anyone who inspects client-side JavaScript. For a public static website, the passcode is a convenience gate, not strong security.
